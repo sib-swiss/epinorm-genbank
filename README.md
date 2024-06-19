@@ -1,5 +1,5 @@
 # epinorm-genbank
-Parser for GenBank files
+Parser for GenBank files, requires BioPython
 
 typical example to parse gzipped GBFF files from subdir "src" without creating fasta sequences:
 
