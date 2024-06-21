@@ -49,15 +49,14 @@ for i,row in df.iterrows():
 	elif 'isolate' in row[4]:
 		df.loc[i,'Pathogen isolate or strain']=row[4]['isolate']
 
-# if present, read taxonomy data and join it to main data using lowercsed sci name
+# if present, read taxonomy data and join it to main data using lowercased sci name
 if len(args)==2 and args[1] is not None and os.path.isfile(args[1]):
-	tx = pandas.read_csv(args[1])
+	tx = pandas.read_csv(args[1],dtype={'tax_id':str})
 	df = pandas.merge(df,tx,how='left',left_on='host',right_on='synonym_name')
 	df['Host species NCBI taxonomy ID'] = df['tax_id']
 else:
 	sys.stderr.write('No data to evaluate host species NCBI tax ids\n')
 	df['Host species NCBI taxonomy ID'] = None
-df.astype({'Host species NCBI taxonomy ID':'string'})
 
 # filter out records having no either of geo, date or host species data
 if not options.imed:
@@ -74,3 +73,6 @@ df.to_csv(sys.stdout, columns=['Pathogen NCBI taxonomy ID','Pathogen species','P
 # 	f.close()
 # FF.close()
 #	f=open('fasta/DNA/'+row[0])
+
+
+
