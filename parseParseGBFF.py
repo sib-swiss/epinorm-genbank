@@ -73,6 +73,3 @@ df.to_csv(sys.stdout, columns=['Pathogen NCBI taxonomy ID','Pathogen species','P
 # 	f.close()
 # FF.close()
 #	f=open('fasta/DNA/'+row[0])
-
-
-
