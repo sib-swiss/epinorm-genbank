@@ -8,7 +8,6 @@ import pandas
 import datetime
 import json
 from dateutil.parser import parse
-#from zipfile import ZipFile
 
 parser = OptionParser(usage='Usage: '+sys.argv[0]+'/path/to/id.org.tab [/path/to/NCBItaxNames.csv]', description='Parses id.org.tab, the file created by parseGBFF.py; Optional file NCBItaxNames.csv contains translation of host names to NCBI taxids')
 parser.add_option("-1", "--header", dest="outHeader", action='store_true', default=False, help='add 1st row with column names')
